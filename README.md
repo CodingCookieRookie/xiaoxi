@@ -57,13 +57,13 @@ Goodbye!
 # Add a task
 ./xiaoxi add "Buy groceries"
 
-# List pending tasks
+# List pending tasks (default)
 ./xiaoxi list
 
-# List all tasks
+# List all tasks (including completed)
 ./xiaoxi list --all
 
-# List completed tasks
+# List only completed tasks
 ./xiaoxi list --completed
 
 # Mark task as completed (keeps the record)
@@ -71,6 +71,31 @@ Goodbye!
 
 # Delete a task permanently
 ./xiaoxi delete 1
+```
+
+### List Command Flags
+
+The `list` command supports the following flags:
+
+| Flag | Description | Example |
+|------|-------------|---------|
+| `--all` | Show all tasks (pending and completed) | `./xiaoxi list --all` |
+| `--completed` | Show only completed tasks | `./xiaoxi list --completed` |
+
+**Default behavior**: `list` without flags shows only pending (incomplete) tasks.
+
+**In REPL mode**:
+
+```
+> list
+[ ] 0 - Buy groceries
+
+> list --all
+[ ] 0 - Buy groceries
+[x] 1 - Walk the dog
+
+> list --completed
+[x] 1 - Walk the dog
 ```
 
 ### Options
